@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:background="@color/white"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/mainImg"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:background="@color/backGray"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/mainExplain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="버스대절은 역시 킹버스"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mainImg" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/tag1"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/tag_back"
+        app:layout_constraintStart_toStartOf="@id/mainExplain"
+        app:layout_constraintTop_toBottomOf="@id/mainExplain" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/tag2"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/tag_back"
+        app:layout_constraintStart_toEndOf="@id/tag1"
+        app:layout_constraintTop_toBottomOf="@id/mainExplain" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/tag3"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/tag_back"
+        app:layout_constraintStart_toEndOf="@id/tag2"
+        app:layout_constraintTop_toBottomOf="@id/mainExplain" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/goDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_go_detail_btn"
+        android:text="혜택확인"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/tag1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/mainExplain" />
+</androidx.constraintlayout.widget.ConstraintLayout>

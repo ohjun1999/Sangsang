@@ -1,5 +1,6 @@
-package com.link.sangsang
+package com.link.sangsang.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -25,6 +26,35 @@ class MainActivity : AppCompatActivity() {
 //firestore 변수 초기화
 
         setContentView(binding.root)
+
+        binding.goAd.setOnClickListener {
+            val intent = Intent(this, AdActivity::class.java)
+            startActivity(intent)
+        }
+        binding.goBenefit.setOnClickListener {
+            val intent = Intent(this, BenefitActivity::class.java)
+            startActivity(intent)
+        }
+        binding.goCommunity.setOnClickListener {
+            val intent = Intent(this, CommunityActivity::class.java)
+            startActivity(intent)
+        }
+        binding.goPoint.setOnClickListener {
+            val intent = Intent(this, PointActivity::class.java)
+            startActivity(intent)
+        }
+        binding.goShop.setOnClickListener {
+            val intent = Intent(this, ShopActivity::class.java)
+            startActivity(intent)
+        }
+        binding.goSurvey.setOnClickListener {
+            val intent = Intent(this, SurveyActivity::class.java)
+            startActivity(intent)
+        }
+
+
+
+
     }
 
     // 액티비티가 파괴될 때..

@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Sangsang">
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,6 +18,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.AdActivity" />
+        <activity android:name=".activity.BenefitActivity" />
+        <activity android:name=".activity.BenefitDetailActivity" />
+        <activity android:name=".activity.CommunityActivity" />
+        <activity android:name=".activity.PointActivity" />
+        <activity android:name=".activity.PointDetailActivity" />
+        <activity android:name=".activity.ShopActivity" />
+        <activity android:name=".activity.SurveyActivity" />
     </application>
 
 </manifest>
