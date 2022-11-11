@@ -6,6 +6,9 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.widget.Toast
+import androidx.viewpager2.widget.ViewPager2
+import com.link.sangsang.R
+import com.link.sangsang.adapter.ViewPagerAdapter
 import com.link.sangsang.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -15,7 +18,11 @@ class MainActivity : AppCompatActivity() {
     // 매번 null 체크를 할 필요 없이 편의성을 위해 바인딩 변수 재 선언
     private val binding get() = mBinding!!
     private var doubleBackToExit = false
-
+    var currentPosition=0
+    val handler=Handler(Looper.getMainLooper()){
+        setPage()
+        true
+    }
     //    @RequiresApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,11 +59,31 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.banner.adapter = ViewPagerAdapter(getIdolList(),this) // 어댑터 생성
+        binding.banner.orientation = ViewPager2.ORIENTATION_HORIZONTAL // 방향을 가로로
 
+
+        val thread=Thread(PagerRunnable())
+        thread.start()
 
 
     }
+    //페이지 변경하기
+    fun setPage(){
+        if(currentPosition==getIdolList().size) currentPosition=0
+        binding.banner.setCurrentItem(currentPosition,true)
+        currentPosition+=1
+    }
 
+    //2초 마다 페이지 넘기기
+    inner class PagerRunnable:Runnable{
+        override fun run() {
+            while(true){
+                Thread.sleep(3000)
+                handler.sendEmptyMessage(0)
+            }
+        }
+    }
     // 액티비티가 파괴될 때..
     override fun onDestroy() {
         // onDestroy 에서 binding class 인스턴스 참조를 정리해주어야 한다.
@@ -64,7 +91,9 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
     }
 
-
+    private fun getIdolList(): ArrayList<Int> {
+        return arrayListOf<Int>(R.drawable.ic_moil_banner,R.drawable.ic_pmo_banner,R.drawable.asset_4_1)
+    }
     override fun onBackPressed() {
         if (doubleBackToExit) {
             finishAffinity()

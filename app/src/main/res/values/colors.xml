@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="backGray">#1F000000</color>
     <color name="backWeakGray">#F8F8FA</color>
+    <color name="mainBlue">#51ADD1</color>
 </resources>

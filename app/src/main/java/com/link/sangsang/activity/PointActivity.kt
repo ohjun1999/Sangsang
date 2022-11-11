@@ -2,6 +2,10 @@ package com.link.sangsang.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.link.sangsang.adapter.PointAdapter
+import com.link.sangsang.dataclass.PointDataClass
 import com.link.sangsang.databinding.ActivityPointBinding
 
 class PointActivity : AppCompatActivity() {
@@ -10,6 +14,7 @@ class PointActivity : AppCompatActivity() {
 
     // 매번 null 체크를 할 필요 없이 편의성을 위해 바인딩 변수 재 선언
     private val binding get() = mBinding!!
+    lateinit var pointRecyclerView: RecyclerView
 
     //    @RequiresApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,6 +27,54 @@ class PointActivity : AppCompatActivity() {
         binding.backKey.setOnClickListener {
             finish()
         }
+        pointRecyclerView = binding.pointRecyclerView
+        val pointDataClass = mutableListOf<PointDataClass>()
+        val pointList = arrayListOf<PointDataClass>()
+        val pointAdapter = PointAdapter(this, pointList)
+        pointDataClass.apply {
+            add(
+                PointDataClass(
+                    pointImg = "ic_kingbus_logo",
+                    pointName = "킹버스"
+
+                    )
+
+            )
+            add(
+                PointDataClass(
+
+                    pointImg = "ic_pmo_logo",
+                    pointName = "PMO"
+                )
+
+            )
+            add(
+                PointDataClass(
+                    pointImg = "ic_moilsurok",
+                    pointName = "모일수록"
+
+                )
+
+            )
+            add(
+                PointDataClass(
+                    pointImg = "ic_ratel_logo",
+                    pointName = "RATEL"
+
+                )
+
+            )
+
+        }
+        pointAdapter.replaceList(pointDataClass)
+        pointRecyclerView.adapter = pointAdapter
+        pointRecyclerView.layoutManager =
+            LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+
+
+
+
+
         setContentView(binding.root)
     }
 

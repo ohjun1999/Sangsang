@@ -17,9 +17,9 @@
         android:layout_height="match_parent"
         android:layout_weight="1"/>
     <ImageView
+        android:id="@+id/pointImg"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:background="@color/backGray"/>
+        android:layout_height="match_parent" />
     <View
         android:layout_width="0dp"
         android:layout_height="match_parent"

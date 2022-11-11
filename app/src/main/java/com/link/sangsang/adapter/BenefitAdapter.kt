@@ -40,18 +40,21 @@ class BenefitAdapter(val context: Context, var benefitList: ArrayList<BenefitDat
         holder.goDetail.setOnClickListener {
             val intent =
                 Intent(holder.itemView.context, BenefitDetailActivity::class.java)
+            intent.putExtra("mainImg", benefit.mainImg)
+            intent.putExtra("logo", benefit.logo)
+            intent.putExtra("company", benefit.company)
+            intent.putExtra("sector", benefit.sector)
+            intent.putExtra("comNum", benefit.comNum)
+            intent.putExtra("membership1", benefit.membership1)
+            intent.putExtra("membership2", benefit.membership2)
+            intent.putExtra("membership3", benefit.membership3)
+            intent.putExtra("membership4", benefit.membership4)
+            intent.putExtra("companyLink", benefit.companyLink)
             ContextCompat.startActivity(holder.itemView.context, intent, null)
         }
 
 
-//        holder.goSite.setOnClickListener {
-//            var intent = Intent(Intent.ACTION_VIEW, Uri.parse(ad.adHome.toString()))
 //
-//
-//
-//            ContextCompat.startActivity(holder.itemView.context, intent, null)
-//
-//        }
 
 
     }
@@ -64,9 +67,9 @@ class BenefitAdapter(val context: Context, var benefitList: ArrayList<BenefitDat
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val mainExplain: TextView = itemView.findViewById(R.id.mainExplain)
-        val tag1: Button = itemView.findViewById(R.id.tag1)
-        val tag2: Button = itemView.findViewById(R.id.tag2)
-        val tag3: Button = itemView.findViewById(R.id.tag3)
+        val tag1: TextView = itemView.findViewById(R.id.tag1)
+        val tag2: TextView = itemView.findViewById(R.id.tag2)
+        val tag3: TextView = itemView.findViewById(R.id.tag3)
         val goDetail: Button = itemView.findViewById(R.id.goDetail)
         val mainImg: ImageView = itemView.findViewById(R.id.mainImg)
     }
